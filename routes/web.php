@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
-
+use App\Models\Student;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,4 +18,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/student', StudentController::class);
+// Route::get('/dashboard', function () {
+//     $students = Student::all();
+//     return view('dashboard')->with('students', $students);
+// })->middleware(['auth'])->name('dashboard');
+
+// resource version using studentcontroller
+Route::resource('/dashboard', StudentController::class)->middleware(['auth'])->name('index', 'dashboard');
+
+require __DIR__.'/auth.php';
+
