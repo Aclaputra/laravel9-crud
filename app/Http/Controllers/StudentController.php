@@ -8,7 +8,7 @@ class StudentController extends Controller
     public function index()
     {
         $students = Student::all();
-        return view ('students.index')->with('students', $students);
+        return view('dashboard')->with('students', $students);
     }
  
     
@@ -34,7 +34,7 @@ class StudentController extends Controller
  
     
     public function edit($id)
-    {
+    {                                                                                                                                                                     
         $student = Student::find($id);
         return view('students.edit')->with('students', $student);
     }
